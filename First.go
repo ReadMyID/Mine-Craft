@@ -30,8 +30,8 @@ func main() {
 	// })
 
 	http.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
-		fmt.Println(r.URL.Path)
 		http.ServeFile(rw, r, "htmls/"+r.URL.Path[1:])
+		fmt.Println("htmls/" + r.URL.Path[1:])
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
